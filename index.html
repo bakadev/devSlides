@@ -22,7 +22,7 @@
 
 		<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 	</head>
-	<body ng-app="myApp">
+	<body ng-app="devSlides">
 		<div class="navbar navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container-fluid">
@@ -42,11 +42,11 @@
 		</div>
 		<div class="container-fluid">
 			<div class="row-fluid">
-				<div class="span3" ng-view>
-					<div>{{name}}</div>
+				<div class="span3" ng-controller="editorFrame">
+					<div>Left Rail</div>
 				</div>
 				<div class="span9" ng-controller="slidePreview">
-					{{name}}
+					<div>Right Rail</div>
 				</div>
 			</div>
 			<hr>
