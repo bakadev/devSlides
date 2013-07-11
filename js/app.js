@@ -1,22 +1,51 @@
 'use strict';
+var devSlides = angular.module('devSlides', ['$strap.directives']);
 
-var devSlides = angular.module('devSlides.app', []);
-
-devSlides.log = angular.module('devSlides.log', []);
-
-angular.module('devSlides', ['devSlides.app']).config(['$routeProvider', function($routeProvider) {
+devSlides.config(function($routeProvider) {
 	$routeProvider.when('/home', {
-		templateUrl: 'partials/partial1.html',
+		templateUrl: 'partials/home.html',
 		controller: 'slidePreview'
 	});
-	// $routeProvider.when('/home', {
-	// 	templateUrl: 'partials/partial2.html',
-	// 	controller: 'editorFrame'
-	// });
-	$routeProvider.otherwise({redirectTo: '/home'});
+	$routeProvider.when('/editor', {
+		templateUrl: 'partials/preview.html',
+		controller: 'slidePreview'
+	});
+	$routeProvider.when('/html', {
+		templateUrl: 'partials/htmlmode.html',
+		controller: 'slidePreview'
+	});
+	$routeProvider.otherwise({redirectTo: '/editor'});
+});
+
+/* Controllers */
+devSlides.controller('slidePreview', ['$scope', function($scope){
+	$scope.name = 'Travis Wilson';
+}]);
+devSlides.controller('editorFrame', ['$scope', function($scope){
+	$scope.email = 'traviswilson@gmail.com';
 }]);
 
+/* Directives */
+// angular.module('devSlides.directives', []).
+// 	directive('appVersion', ['version', function(version) {
+// 		return function(scope, elm, attrs) {
+// 			elm.text(version);
+// 		};
+// }]);
 
+
+/* Filters */
+// angular.module('devSlides.filters', []).
+// 	filter('interpolate', ['version', function(version) {
+// 		return function(text) {
+// 			return String(text).replace(/\%VERSION\%/mg, version);
+// 		}
+// }]);
+
+
+/* Services */
+// angular.module('devSlides.services', []).
+//   value('version', '0.1');
 
 
 
