@@ -11,33 +11,8 @@
 		<meta name="viewport" content="width=device-width">
 
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<style>
-			body {
-				padding-top: 60px;
-				padding-bottom: 40px;
-			}
-		</style>
-<style type='text/css'>
-  /* MUST HAVE WIDTH/HEIGHT */
-  .ace-editor {
-    width:280px;
-    height:500px;
-  }
-.editor {
-    position:absolute;
-    width:100%;
-    min-height: 400px;
-    line-height: 1.3;
-}
-  #contents {
-    width:500px;
-    height:500px;
-    position:absolute;
-    left:500px;
-    top:0;
-  }
-</style>		<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
-		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+		<link rel="stylesheet" href="css/app.css">
 
 		<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 	</head>
@@ -50,32 +25,27 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="brand" href="#/home">dev<strong>Slides</strong></a>
+					<a class="brand" href="#/editor">dev<strong>Slides</strong></a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li data-match-route="/home"><a href="#/home">Home</a></li>
+							<!-- <li data-match-route="/home"><a href="#/home">Home</a></li> -->
 							<li data-match-route="/editor"><a href="#/editor">Editor / Preview</a></li>
-							<li data-match-route="/html"><a href="#/html">Editor / HTML</a></li>
+							<!-- <li data-match-route="/html"><a href="#/html">Editor / HTML</a></li> -->
 						</ul>
 					</div>
 					<button class="btn btn-inverse pull-right" type="button">Save Presentation</button>
 				</div>
 			</div>
 		</div>
-		<div class="container-fluid">
+		<div class="container-fluid" id="appContainer">
 			<div class="row-fluid">
-				<div class="span3" ng-controller="editorFrame" ng-include="'partials/editor.html'">
+				<div class="editor-container" ng-controller="editorFrame" ng-include="'partials/editor.html'">
 					<div>Left Rail {{email}}</div>
 				</div>
-				<div class="span9" ng-controller="slidePreview" ng-view>
+				<div class="preview-container" ng-controller="slidePreview" ng-view>
 					<div>Right Rail {{name}}</div>
 				</div>
 			</div>
-			<hr>
-			<footer>
-				<p>devSlides: v<span app-version></span></p>
-			</footer>
-
 		</div>
 
 		<script src="js/vendor/jquery-1.10.1.min.js"></script>
